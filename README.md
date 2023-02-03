@@ -22,3 +22,24 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+Models
+- Flights
+- 
+- belongs_to airports 
+
+  - departure aiprot
+  - arrival airport
+  - datetime of flight 
+  - flight duration  
+  - capacity
+  
+- Airports 
+  -   has many flights 
+
+Dropdown menus
+1. Departure Aiport
+2. Arrival Airport
+3. Date
+4. Number of passengers
+
