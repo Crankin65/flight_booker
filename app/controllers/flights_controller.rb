@@ -5,7 +5,7 @@ class FlightsController < ApplicationController
     @passengers = [1,2,3,4]
     @departure_date =  Flight.all.map {|f| [f.flight_time.to_date, f.flight_time]}.uniq
 
-    if params[:commit]
+    if flight_params
       #This should be better
      @searched_flights = Flight.where(departure_airport_id: params[:departure_airport_id],
                                         arrival_airport_id: params[:arrival_airport_id],
@@ -19,5 +19,7 @@ class FlightsController < ApplicationController
     def flight_params
       params.permit(:departure_airport_id, :arrival_airport_id, :passenger_count, :departure_date, :commit)
     end
+
+    def
 
 end
