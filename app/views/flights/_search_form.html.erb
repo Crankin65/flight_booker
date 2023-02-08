@@ -1,9 +1,5 @@
 <h2> Search Form</h2>
 
-<!--Test-params = <%#= @test_flight_params %>-->
-<!--searched flights = <%#= @searched_flights %>-->
-
-
 <nav class="navbar bg-body-tertiary">
   <%= form_with(model: @flight, method: :get, url: root_path, local: true) do |form| %>
     <div class ="container-fluid">
