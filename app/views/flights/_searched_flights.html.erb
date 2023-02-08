@@ -1,4 +1,4 @@
-<% if @searched_flights %>
+<% if @searched_flights.present? %>
 
   <h3> Matching Flights </h3>
 
@@ -22,6 +22,8 @@
         <%= form.submit 'Search', class: 'button', id: 'search-button' %>
       </div>
     <% end %>
+
+
   </nav>
 
 <% end %>
