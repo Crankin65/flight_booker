@@ -1,0 +1,30 @@
+<% if @searched_flights %>
+
+  <%# @searched_flights.each do |flight| %>
+    <%#= flight.name %>
+  <%# end %>
+  <h3> Matching Flights </h3>
+
+  <nav class="navbar bg-body-tertiary">
+    <%= form_with(model: @flight, method: :get, url: root_path, local: true) do |form| %>
+      <div class ="container-fluid">
+        <% @searched_flights.each do |flight| %>
+        <%= form.radio_button :flight,'Flight', class:'label' %>
+
+          <%= "#{flight.departure_airport.name} to #{flight.arrival_airport.name}
+              Departure Time: #{flight.flight_time}
+              Duration: #{flight.flight_duration}
+              " %>
+          <br>
+        <% end %>
+
+      </div>
+      <br>
+
+      <div class ="container-fluid">
+        <%= form.submit 'Search', class: 'button', id: 'search-button' %>
+      </div>
+    <% end %>
+  </nav>
+
+<% end %>

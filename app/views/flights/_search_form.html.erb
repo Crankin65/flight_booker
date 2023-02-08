@@ -1,7 +1,11 @@
 <h2> Search Form</h2>
 
+<!--Test-params = <%#= @test_flight_params %>-->
+<!--searched flights = <%#= @searched_flights %>-->
+
+
 <nav class="navbar bg-body-tertiary">
-  <%= form_with(model: @flight, method: :get, url: "flights#index", local: true) do |form| %>
+  <%= form_with(model: @flight, method: :get, url: root_path, local: true) do |form| %>
     <div class ="container-fluid">
       <%= form.label :from,'From', class:'label' %>
       <%= select_tag(:departure_airport_id, options_for_select(@departure_airport_options )) %>
@@ -10,7 +14,7 @@
 
     <div class ="container-fluid">
       <%= form.label :to, 'To', class:'label' %>
-      <%= select_tag(:arrival_airport_id, options_for_select(@departure_airport_options )) %>
+      <%= select_tag(:arrival_airport_id, options_for_select(@arrival_airport_options )) %>
     </div>
     <br>
 
