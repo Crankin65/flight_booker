@@ -15,6 +15,8 @@ Flight.create!([{flight_time: DateTime.new(2022,1,2,3,4,5), flight_duration: 5, 
                 {flight_time: DateTime.new(2022,1,2,3,4,5), flight_duration: 4, departure_airport_id: Airport.where(name:"LGA").take.id, arrival_airport_id: Airport.where(name: "JFK").take.id},
                 {flight_time: DateTime.new(2022,1,2,3,4,5), flight_duration: 3, departure_airport_id: Airport.where(name:"JFK").take.id, arrival_airport_id: Airport.where(name: "LGA").take.id} ])
 
+Passenger.create!([{first_name: "Bob"}])
+
 p "Created #{Airport.count} airports and #{Flight.count} flights(s)"
 
 # if Airport.error?
