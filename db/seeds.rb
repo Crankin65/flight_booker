@@ -15,9 +15,10 @@ Flight.create!([{flight_time: DateTime.new(2022,1,2,3,4,5), flight_duration: 5, 
                 {flight_time: DateTime.new(2022,1,2,3,4,5), flight_duration: 4, departure_airport_id: Airport.where(name:"LGA").take.id, arrival_airport_id: Airport.where(name: "JFK").take.id},
                 {flight_time: DateTime.new(2022,1,2,3,4,5), flight_duration: 3, departure_airport_id: Airport.where(name:"JFK").take.id, arrival_airport_id: Airport.where(name: "LGA").take.id} ])
 
-Passenger.create!([{first_name: "Bob"}])
+Booking.create!([{flight_id: Flight.where(flight_duration: 5).take.id}])
+Passenger.create!([{first_name: "Bob", last_name: "Tom", booking_id: 1}])
 
-p "Created #{Airport.count} airports and #{Flight.count} flights(s)"
+p "Created #{Airport.count} airports,  #{Flight.count} flights(s), #{Booking.count} booking(s), and #{Passenger.count} passenger(s)"
 
 # if Airport.error?
 #   p "The Airport errors are #{Airport.errors.full_messages}"

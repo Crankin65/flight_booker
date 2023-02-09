@@ -1,11 +1,12 @@
 <% if @searched_flights.present? %>
 
   <h3> Matching Flights </h3>
-
   <nav class="navbar bg-body-tertiary">
-    <%= form_with(model: @flight, method: :get, url: root_path, local: true) do |form| %>
+    <%= form_with(model: @flight, method: :get, url: new_booking_path, local: true) do |form| %>
       <div class ="container-fluid">
         <% @searched_flights.each do |flight| %>
+          <% hidden_field_tag(:passenger_count, @passenger_count) %>
+          <%= hidden_field_tag(:flight_id, flight.id) %>
         <%= form.radio_button :flight,'Flight', class:'label' %>
 
           <%= "#{flight.departure_airport.name} to #{flight.arrival_airport.name}

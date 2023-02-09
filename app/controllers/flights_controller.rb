@@ -20,6 +20,5 @@ class FlightsController < ApplicationController
       params.permit(:departure_airport_id, :arrival_airport_id, :passenger_count, :departure_date, :commit)
     end
 
-    def
 
 end
