@@ -4,6 +4,7 @@ class FlightsController < ApplicationController
     @arrival_airport_options = Airport.all.map {|a| [a.name, a.id] }
     @passengers = [1,2,3,4]
     @departure_date =  Flight.all.map {|f| [f.flight_time.to_date, f.flight_time]}.uniq
+    @passenger_count = params[:passenger_count]
 
     if flight_params
       #This should be better
