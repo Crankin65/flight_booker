@@ -10,7 +10,8 @@
           <%= hidden_field_tag :passenger_count, @passenger_count %>
 
           <div>
-          <%= "#{flight.departure_airport.name} to #{flight.arrival_airport.name} leaving at #{flight.flight_time}" %>
+          <%= "#{flight.departure_airport.name} to #{flight.arrival_airport.name}
+          leaving #{formatted_date(flight.flight_time)}" %>
           </div>
 
           <div>

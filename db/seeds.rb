@@ -1,10 +1,7 @@
-# Examples:
-#
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
-
 Airport.destroy_all
 Flight.destroy_all
+Booking.destroy_all
+Passenger.destroy_all
 
 Airport.create!([{name: "LGA"},{name: "JFK"}, {name: "EWR"}])
 Flight.create!([{flight_time: DateTime.new(2022,1,2,3,4,5), flight_duration: 5, departure_airport_id: Airport.where(name:"EWR").take.id, arrival_airport_id: Airport.where(name: "JFK").take.id},
@@ -15,8 +12,8 @@ Flight.create!([{flight_time: DateTime.new(2022,1,2,3,4,5), flight_duration: 5, 
                 {flight_time: DateTime.new(2022,1,2,3,4,5), flight_duration: 4, departure_airport_id: Airport.where(name:"LGA").take.id, arrival_airport_id: Airport.where(name: "JFK").take.id},
                 {flight_time: DateTime.new(2022,1,2,3,4,5), flight_duration: 3, departure_airport_id: Airport.where(name:"JFK").take.id, arrival_airport_id: Airport.where(name: "LGA").take.id} ])
 
-Booking.create!([{flight_id: Flight.where(flight_duration: 5).take.id}])
-Passenger.create!([{first_name: "Bob", last_name: "Tom", booking_id: 1}])
+booking = Booking.create!([{flight_id: Flight.where(flight_duration: 5).take.id}])
+Passenger.create!([{first_name: "Bob", last_name: "Tom", booking_id: booking.id}])
 
 p "Created #{Airport.count} airports,  #{Flight.count} flights(s), #{Booking.count} booking(s), and #{Passenger.count} passenger(s)"
 
