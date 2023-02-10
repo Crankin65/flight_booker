@@ -3,16 +3,21 @@
   <h3> Matching Flights </h3>
   <nav class="navbar bg-body-tertiary">
     <%= form_with(model: @flight, method: :get, url: new_booking_path, local: true) do |form| %>
-      <% form.hidden_field :passenger_count, :value => @passenger_count %>
 
       <div class ="container-fluid">
         <% @searched_flights.each do |flight| %>
-        <%= form.radio_button :flight,'Flight', class:'label' %>
+        <%= form.radio_button :flight_id, flight.id, class:'label' %>
+          <%= hidden_field_tag :passenger_count, @passenger_count %>
 
-          <%= "#{flight.departure_airport.name} to #{flight.arrival_airport.name} leaving at
-            #{flight.flight_time.to_time} on #{flight.flight_time.to_date}. This flight will last
-            #{flight.flight_duration} hours. You're booking #{@passenger_count} passengers" %>
-          <% form.hidden_field :flight_id, :value => flight.id %>
+          <div>
+          <%= "#{flight.departure_airport.name} to #{flight.arrival_airport.name} leaving at #{flight.flight_time}" %>
+          </div>
+
+          <div>
+             <%= "This flight will last #{flight.flight_duration} hours. You're booking #{@passenger_count} passengers" %>
+          </div>
+
+
           <br>
         <% end %>
 
