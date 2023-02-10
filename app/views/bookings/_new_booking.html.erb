@@ -1,0 +1,36 @@
+<h1> New Booking Form </h1>
+
+<nav class="navbar bg-body-tertiary">
+
+    <%= fields_for :passengers do |p| %>
+      <% hidden_field_tag :flight_id, @flight.id %>
+
+      <%= @passenger_count.to_i.times do  %>
+
+      <div style="margin: 25px">
+        <div class ="container-fluid">
+            <%= p.text_field :first_name, placeholder: "First Name", required: true %>
+        </div>
+
+        <div class ="container-fluid">
+          <%= p.text_field :last_name, placeholder: "Last Name", required: true %>
+        </div>
+
+        <div class ="container-fluid">
+          <%= p.text_field :email, placeholder: "E-mail", required: true %>
+        </div>
+
+        <div class="container-fluid" >
+          <%= p.submit "Submit" %>
+        </div>
+      </div>
+
+  <% end %>
+
+<% end %>
+
+</nav>
+
+
+
+<%#  redirect_to :root_path, notice: "Successful Booking!" %>
