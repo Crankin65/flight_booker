@@ -3,7 +3,6 @@
 <nav class="navbar bg-body-tertiary">
   <%= form_with(model: @booking, local: true) do |form| %>
     <%= form.fields_for :passengers do |p| %>
-      <% hidden_field_tag :flight_id, @flight.id %>
 
         <div style="margin: 25px">
           <div class="container-fluid">
@@ -23,12 +22,10 @@
     <% end %>
 
     <div class="container-fluid">
+
       <%= form.submit "Submit" %>
     </div>
-  <% end %>
+    <%= hidden_field_tag :flight_id, @flight.id %>
+
+<% end %>
 </nav>
-
-
-
-
-<%#  redirect_to :root_path, notice: "Successful Booking!" %>
