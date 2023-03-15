@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+
+  <body>
+    <h1> You've successfully booked your flight to <%= @arriving_airport %></h1>
+    <p> Your flight information is below:</p>
+    <p>You're flying from <%= @departing_airport %> at <%= @flight_time %> with <%= @passengers.pluck(:first_name)%></p>
+  </body>
+</html>

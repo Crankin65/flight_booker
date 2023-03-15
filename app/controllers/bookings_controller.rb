@@ -15,7 +15,10 @@ class BookingsController < ApplicationController
 
     if @booking.save
       flash[:notice] = "Passenger save was successsful"
-      redirect_to booking_path(@flight)
+      redirect_to booking_path(@booking)
+
+      PassengerMailer.with(booking: @booking).booking_confirmation_email.deliver_later
+
     else
       flash[:alert] = "Passenger not saved"
     end
@@ -23,9 +26,15 @@ class BookingsController < ApplicationController
   end
 
   def show
-    @flight = Flight.find(params[:id])
-    @booking = @flight.bookings.last
+    # @flight = Flight.find(params[:id])
+    # @booking = @flight.bookings.last
+    @booking = Booking.find(params[:id])
     @passengers = @booking.passengers
+    @flight = @booking.flight
+    @departing_flight = @booking.flight.departure_airport.name
+    @arriving_flight = @booking.flight.arrival_airport.name
+
+
 
   end
 

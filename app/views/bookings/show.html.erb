@@ -3,8 +3,7 @@
 
 All passengers,
 <% @passengers.each do |passenger| %>
-<%= passenger.first_name+ "," %>
+  <%= passenger.first_name+ "," %>
 <% end %>
 
-<br>
 <%= "have booked flights from #{@flight.departure_airport.name} at #{formatted_date(@flight.flight_time)}" %>

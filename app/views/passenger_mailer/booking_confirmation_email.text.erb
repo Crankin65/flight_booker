@@ -1,0 +1,5 @@
+You've successfully booked your flight to <%= @arriving_airport %>
+------------------------------------------------------------------------
+Your flight information is below:
+
+You're flying from <%= @departing_airport %> at <%= @flight_time %> with <%= @passengers.pluck(:first_name)%>
