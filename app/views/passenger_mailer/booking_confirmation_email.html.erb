@@ -5,8 +5,14 @@
   </head>
 
   <body>
-    <h1> You've successfully booked your flight to <%= @arriving_airport %></h1>
+    <h1> You've successfully booked your flight to <%= @arriving_airport %>!</h1>
     <p> Your flight information is below:</p>
-    <p>You're flying from <%= @departing_airport %> at <%= @flight_time %> with <%= @passengers.pluck(:first_name)%></p>
+    <p>Departing from: <%= @departing_airport %> </p>
+    <p>Leaving: <%= @departure_time %>  </p>
+    <p>Pasengers: <% @passengers.each do |passenger| %>
+         <%= passenger.first_name %>
+      <% end %> </p>
+
+  <h4> Have a great flight!</h4>
   </body>
 </html>

@@ -7,7 +7,6 @@ class FlightsController < ApplicationController
     @passenger_count = params[:passenger_count]
 
     if flight_params
-      #This should be better
      @searched_flights = Flight.where(departure_airport_id: params[:departure_airport_id],
                                         arrival_airport_id: params[:arrival_airport_id],
                                         flight_time: params[:departure_date])
